@@ -1,7 +1,7 @@
 //Memory cacher key-value
 // [string]interface{}
 
-package MemoryCacher
+package github.com/GoSeoTaxi/MemoryCacher
 
 import (
 	"fmt"
