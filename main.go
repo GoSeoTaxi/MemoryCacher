@@ -30,7 +30,7 @@ func NewCache(ttl time.Duration) Cacher {
 				}
 				return true
 			})
-			fmt.Println(`clean complete.`)
+			fmt.Println(`clean complete`)
 		}
 	}(&sm)
 	return Cache{cacherTTL: ttl, storage: &sm}
