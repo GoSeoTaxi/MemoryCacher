@@ -1,7 +1,7 @@
 //Memory cacher key-value
 // [string]interface{}
 
-package main
+package MemoryCacher
 
 import (
 	"fmt"
@@ -51,34 +51,4 @@ func (c Cache) Get(k1 string) (interface{}, bool) {
 type data struct {
 	value   interface{}
 	timeTTL time.Time
-}
-
-func main() {
-	newCache := NewCache(5 * time.Second)
-
-	// пустое значение
-	v, ok := newCache.Get("test")
-	fmt.Println(v)
-	fmt.Println(ok)
-	fmt.Println(`Print "" false`)
-
-	// не пустое значение
-	newCache.Set("test", "test1")
-	newCache.Set("test2", "test2")
-	newCache.Set("test3", "test3")
-
-	time.Sleep(1 * time.Second)
-	newCache.Set("test5", "test5")
-
-	v, ok = newCache.Get("test")
-	fmt.Println(v)
-	fmt.Println(ok)
-	fmt.Println(`Print false "true"`)
-	// не пустое значение через время
-	time.Sleep(5 * time.Second)
-	v, ok = newCache.Get("test")
-	fmt.Println(v)
-	fmt.Println(ok)
-	fmt.Println(`Print "" false`)
-
 }
